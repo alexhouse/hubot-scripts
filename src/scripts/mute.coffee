@@ -33,9 +33,7 @@ module.exports = (robot) ->
         msg.send room + ' is muted'
 
   re = new RegExp("(mute|unmute) (all|[\\" + process.env.HUBOT_MUTE_ROOM_PREFIX + "]?[\\S]+)$", "i")
-  console.log(re)
   robot.respond re, (msg) ->
-    console.log(msg.match)
     msg.finish()
     channel = msg.match[2]
     action = msg.match[1].toLowerCase()
